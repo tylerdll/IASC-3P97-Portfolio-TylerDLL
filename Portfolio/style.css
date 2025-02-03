@@ -1,46 +1,29 @@
-body{
-    width: 40%;
-    color: white;
-    margin-left: 5%;
-    text-shadow: .5px .5px 1px #880909;
+body {
+   background-color: darkgray;
+   color: white;
+   margin: 0 auto;
+   width: fit-content;
+   text-align:left;
 }
-
-
 h1{
-    color:rgb(124, 17, 17);
-    
-    font-size: 48px;
-    text-align: center;
-}
-
-h2{
-    color:rgb(124, 17, 17);
     font-size: 36px;
-    text-align: center;
-  
 }
-p{
-    font-size: 20px;
-    margin-bottom: 24px;
+h2{
+    font-size: 28px;
 }
 
-.clickable {
-    color: aqua;
-    cursor: grab;
-
-}
-.clickable:hover{
-    color:#d80000;
-}
-.hidden{
-    display: none;
+li{
+    font-size: 24px;
+    list-style-type: none;
 }
 
+a{
+    color:red;
+    text-decoration: none;
 
-.webgl {
-    position: fixed;
-    top: 0;
-    left: 0;
-    outline: none;
-    z-index: -1;
+}
+
+a:hover{
+color: rgb(70, 0, 0);
+text-decoration: overline;
 }
