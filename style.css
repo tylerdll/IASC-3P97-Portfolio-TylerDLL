@@ -1,29 +1,96 @@
+head {
+    background-color: black;
+}
+
 body {
-   background-color: darkgray;
-   color: white;
-   margin: 0 auto;
-   width: fit-content;
-   text-align:left;
+    background-color: rgb(22, 0, 0);
+    color: white;
+    text-align: center; /* Center the text */
+    font-family: 'Courier New', monospace;
+    padding-top: 250px; /* Add enough padding to push content below the ticker */
 }
-h1{
-    font-size: 36px;
+
+h1 {
+    font-size: 46px;
 }
-h2{
+
+h2 {
     font-size: 28px;
 }
 
-li{
-    font-size: 24px;
-    list-style-type: none;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-a{
-    color:red;
-    text-decoration: none;
-
+/* Moving Image Container */
+.moving-image-container {
+    width: 100%;
+    height: 200px; /* Adjust height as needed */
+    overflow: hidden;
+    background-color: #222;
+    display: flex;
+    align-items: center;
+    position: fixed; /* Fix it at the top */
+    top: 0; /* Make sure it stays at the top */
+    left: 0;
+    z-index: 1000; /* Ensure it's above other content */
+    white-space: nowrap;
 }
 
-a:hover{
-color: rgb(70, 0, 0);
-text-decoration: overline;
+/* Wrapper that holds multiple images */
+.moving-image-wrapper {
+    display: flex;
+    animation: moveRight 300s linear infinite;
+}
+
+/* Image Style */
+.moving-image {
+    height: 200px; /* Adjust as needed */
+    width: auto;
+}
+
+/* Rightward Scrolling Animation */
+@keyframes moveRight {
+    0% {
+        transform: translateX(0); /* Start from the leftmost */
+    }
+    100% {
+        transform: translateX(-100%); /* Move the images completely to the left */
+    }
+}
+
+/* Video container to hold the YouTube video */
+.video-container {
+    position: relative; /* Make sure the images are positioned relative to this container */
+    max-width: 100%;
+    margin: 20px auto; /* Center the video */
+    display: flex;
+    justify-content: center; /* Center horizontally */
+}
+
+/* Position for Bottom Left Image */
+.bottom-left {
+    position: absolute;
+    bottom: -20px; /* Adjust bottom distance */
+    left: 320px;   /* Adjust left distance */
+    width: 175px;  /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Position for Bottom Right Image */
+.bottom-right {
+    position: absolute;
+    bottom: -20px; /* Adjust bottom distance */
+    right: 320px;  /* Adjust right distance */
+    width: 175px;  /* Adjust image size */
+    height: auto; /* Maintain aspect ratio */
+}
+
+/* Responsive video styling */
+.video-container iframe {
+    width: 100%;
+    max-width: 1000px; /* Max width of the video */
+    height: 500px;
 }

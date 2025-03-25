@@ -1,28 +1,37 @@
 <!DOCTYPE html>
-<script type="importmap">
-    {
-        "imports": {
-            "three":"https://ga.jspm.io/npm:three@0.158.0/build/three.module.js",
-            "OrbitControls":"https://ga.jspm.io/npm:three@0.158.0/examples/jsm/controls/OrbitControls.js",
-            "lil-gui":"https://ga.jspm.io/npm:lil-gui@0.19.1/dist/lil-gui.esm.js"
-        }
-    }
-</script>
-
-
-
+<link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Three.js OBJ Model Viewer</title>
-    <style>
-        body { margin: 0; overflow: hidden; }
-        canvas { display: block; }
-    </style>
+    <title>Tyler De Las Llagas Portfolio</title>
 </head>
+
 <body>
-    <canvas class="webgl"></canvas>
-    <script type="module" src="main.js"></script>
+
+    <div class="moving-image-container">
+        <div class="moving-image-wrapper">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+            <img src="reel.png" alt="Moving Image" class="moving-image">
+        </div>
+    </div>
+    
+    <h1>Tyler De Las Llagas</h1>
+    
+    <!-- YouTube Video Embed with images on the corners -->
+    <div class="video-container">
+        <iframe width="1000" height="500" src="https://www.youtube.com/embed/cklfhd7m8SU?si=nANpHSRNa-e1vJ1O" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
+        <!-- Bottom Left Image -->
+        <img src="left_image.png" alt="Left Image" class="bottom-left">
+
+        <!-- Bottom Right Image -->
+        <img src="right_image.png" alt="Right Image" class="bottom-right">
+    </div>
+
 </body>
+
 </html>
