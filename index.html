@@ -1,13 +1,22 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 <html lang="en">
-
 <head>
     <title>Tyler De Las Llagas Portfolio</title>
+    <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 </head>
-
 <body>
 
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Moving Image Ticker -->
     <div class="moving-image-container">
         <div class="moving-image-wrapper">
             <img src="reel.png" alt="Moving Image" class="moving-image">
@@ -15,23 +24,54 @@
             <img src="reel.png" alt="Moving Image" class="moving-image">
             <img src="reel.png" alt="Moving Image" class="moving-image">
             <img src="reel.png" alt="Moving Image" class="moving-image">
-            <img src="reel.png" alt="Moving Image" class="moving-image">
         </div>
     </div>
-    
-    <h1>Tyler De Las Llagas</h1>
-    
-    <!-- YouTube Video Embed with images on the corners -->
+
+    <!-- Title -->
+    <h1 class="name">Tyler De Las Llagas</h1>
+
+    <!-- YouTube Video Embed with Images on the Corners -->
     <div class="video-container">
         <iframe width="1000" height="500" src="https://www.youtube.com/embed/cklfhd7m8SU?si=nANpHSRNa-e1vJ1O" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
-        <!-- Bottom Left Image -->
         <img src="left_image.png" alt="Left Image" class="bottom-left">
-
-        <!-- Bottom Right Image -->
         <img src="right_image.png" alt="Right Image" class="bottom-right">
     </div>
 
-</body>
+    <!-- About Section (Text Left, Images Right) -->
+    <div class="about-section">
+        <div class="about-content">
+            <h1 class="about">About</h1>
+            <p class="abouttext">
+                Welcome to my portfolio! I am a 3rd year Interactive Arts and Sciences major studying at Brock University. I am pursuing a career in video editing, production, and cinematography. I am well-versed in DaVinci Resolve, Sony Vegas Pro, and am learning After Effects. I enjoy storytelling through video and what impact it has on society.
+            </p>
+        </div>
 
+        <!-- Image Slideshow (Right Side) -->
+        <div class="slideshow-container">
+            <img class="slide fade" src="Profile.png" alt="Slideshow Image 1">
+            <img class="slide fade" src="Profile2.jpg" alt="Slideshow Image 2">
+            <img class="slide fade" src="Profile.png" alt="Slideshow Image 3">
+        </div>
+    </div>
+
+    <script>
+        let slideIndex = 0;
+        const slides = document.querySelectorAll(".slide");
+
+        function showSlides() {
+            slides.forEach((slide, index) => {
+                slide.classList.remove("active");
+                if (index === slideIndex) {
+                    slide.classList.add("active");
+                }
+            });
+
+            slideIndex = (slideIndex + 1) % slides.length;
+            setTimeout(showSlides, 3000); // Change every 3 seconds
+        }
+
+        showSlides();
+    </script>
+
+</body>
 </html>

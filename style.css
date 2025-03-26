@@ -3,94 +3,170 @@ head {
 }
 
 body {
-    background-color: rgb(22, 0, 0);
+    background-color: rgb(0, 0, 0);
     color: white;
-    text-align: center; /* Center the text */
+    text-align: center;
     font-family: 'Courier New', monospace;
-    padding-top: 250px; /* Add enough padding to push content below the ticker */
+    padding-top: 100px;
 }
 
-h1 {
-    font-size: 46px;
+/* Adjust Title Position */
+.name {
+    margin-top: 40px;
 }
 
-h2 {
-    font-size: 28px;
+/* About Section Layout */
+.about-section {
+    display: flex;  /* Enables flexbox */
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Spreads text and images */
+    max-width: 1000px;
+    margin: 50px auto;
+    padding: 20px;
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+/* About Text */
+.about-content {
+    flex: 1; /* Allows it to take space */
+    max-width: 50%;
+    text-align: left;
 }
 
-/* Moving Image Container */
+.about {
+    margin-top: 0;
+}
+
+.abouttext {
+    margin-top: 20px;
+    max-width: 600px;
+    word-wrap: break-word;
+    line-height: 1.6;
+}
+
+/* Slideshow Container (Right Side) */
+.slideshow-container {
+    width: 400px;
+    height: 300px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+}
+
+/* Slide images */
+.slide {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain; /* Prevents stretching */
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Make the active slide visible */
+.slide.active {
+    opacity: 1;
+}
+
+/* Navigation Bar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background-color: black;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+.navbar ul li a:hover {
+    color: #ffcc00;
+}
+
+/* Moving Image Container (Ticker) */
 .moving-image-container {
     width: 100%;
-    height: 200px; /* Adjust height as needed */
+    height: 200px;
     overflow: hidden;
-    background-color: #222;
+    background-color: #000000;
     display: flex;
     align-items: center;
-    position: fixed; /* Fix it at the top */
-    top: 0; /* Make sure it stays at the top */
-    left: 0;
-    z-index: 1000; /* Ensure it's above other content */
+    position: relative;
+    margin-top: -45px;
     white-space: nowrap;
 }
 
 /* Wrapper that holds multiple images */
 .moving-image-wrapper {
     display: flex;
-    animation: moveRight 300s linear infinite;
+    animation: moveRight 2500s linear infinite;
 }
 
 /* Image Style */
 .moving-image {
-    height: 200px; /* Adjust as needed */
+    height: 200px;
     width: auto;
 }
 
 /* Rightward Scrolling Animation */
 @keyframes moveRight {
     0% {
-        transform: translateX(0); /* Start from the leftmost */
+        transform: translateX(0);
     }
     100% {
-        transform: translateX(-100%); /* Move the images completely to the left */
+        transform: translateX(-100%);
     }
 }
 
-/* Video container to hold the YouTube video */
+/* Video container */
 .video-container {
-    position: relative; /* Make sure the images are positioned relative to this container */
+    position: relative;
     max-width: 100%;
-    margin: 20px auto; /* Center the video */
+    margin: 20px auto;
     display: flex;
-    justify-content: center; /* Center horizontally */
+    justify-content: center;
 }
 
 /* Position for Bottom Left Image */
 .bottom-left {
     position: absolute;
-    bottom: -20px; /* Adjust bottom distance */
-    left: 320px;   /* Adjust left distance */
-    width: 175px;  /* Adjust image size */
-    height: auto; /* Maintain aspect ratio */
+    bottom: -60px;
+    left: 320px;
+    width: 175px;
+    height: auto;
 }
 
 /* Position for Bottom Right Image */
 .bottom-right {
     position: absolute;
-    bottom: -20px; /* Adjust bottom distance */
-    right: 320px;  /* Adjust right distance */
-    width: 175px;  /* Adjust image size */
-    height: auto; /* Maintain aspect ratio */
+    bottom: -60px;
+    right: 310px;
+    width: 175px;
+    height: auto;
 }
 
 /* Responsive video styling */
 .video-container iframe {
     width: 100%;
-    max-width: 1000px; /* Max width of the video */
-    height: 500px;
+    max-width: 1000px;
+    height: 400px;
 }
