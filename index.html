@@ -5,7 +5,6 @@
     <link rel="stylesheet" href="style.css"> <!-- Link to external CSS file -->
 </head>
 <body>
-
     <!-- Navigation Bar -->
     <nav class="navbar">
         <ul>
@@ -26,17 +25,14 @@
             <img src="reel.png" alt="Moving Image" class="moving-image">
         </div>
     </div>
-
     <!-- Title -->
     <h1 class="name">Tyler De Las Llagas</h1>
-
     <!-- YouTube Video Embed with Images on the Corners -->
     <div class="video-container">
         <iframe width="1000" height="500" src="https://www.youtube.com/embed/cklfhd7m8SU?si=nANpHSRNa-e1vJ1O" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <img src="left_image.png" alt="Left Image" class="bottom-left">
         <img src="right_image.png" alt="Right Image" class="bottom-right">
     </div>
-
     <!-- About Section (Text Left, Images Right) -->
     <div class="about-section">
         <div class="about-content">
@@ -45,18 +41,38 @@
                 Welcome to my portfolio! I am a 3rd year Interactive Arts and Sciences major studying at Brock University. I am pursuing a career in video editing, production, and cinematography. I am well-versed in DaVinci Resolve, Sony Vegas Pro, and am learning After Effects. I enjoy storytelling through video and what impact it has on society.
             </p>
         </div>
-
-        <!-- Image Slideshow (Right Side) -->
+     <!-- Image Slideshow (Right Side) -->
         <div class="slideshow-container">
             <img class="slide fade" src="Profile.png" alt="Slideshow Image 1">
             <img class="slide fade" src="Profile2.jpg" alt="Slideshow Image 2">
-            <img class="slide fade" src="Profile.png" alt="Slideshow Image 3">
+            <img class="slide fade" src="profile3.png" alt="Slideshow Image 3">
+        </div>
+    </div>
+
+
+    <!-- Video Thumbnails Section -->
+    <div class="video-thumbnails-section">
+        <div class="thumbnail-slideshow">
+            <button class="prev" onclick="changeVideo(-1)">&#10094;</button>
+            <img id="thumbnail" src="thumb1.png" alt="Video Thumbnail" onclick="playVideo()">
+            <button class="next" onclick="changeVideo(1)">&#10095;</button>
+        </div>
+
+        <!-- Video Description -->
+        <div class="video-description">
+            <h1 id="v-title">Competition Work</h1>
+            <h1 id="video-title">Flamingo</h1>
+            <p id="video-text">A movie filming gone wrong; Director Bob Jones is seen to be in trouble as a mysterious figure stalks him</p>
+       
+                <p id="video-awards">Placed 2nd place in Brock University's 72-Hour Film Festival 2023</p>
+ 
         </div>
     </div>
 
     <script>
-        let slideIndex = 0;
+      let slideIndex = 0;
         const slides = document.querySelectorAll(".slide");
+
 
         function showSlides() {
             slides.forEach((slide, index) => {
@@ -66,12 +82,85 @@
                 }
             });
 
+
             slideIndex = (slideIndex + 1) % slides.length;
             setTimeout(showSlides, 3000); // Change every 3 seconds
         }
 
+
         showSlides();
+
+
+        const videoData = [
+            {
+
+                thumbnail: "thumb1.png",
+                title: "Flamingo",
+                description: "A movie filming gone wrong; Director Bob Jones is seen to be in trouble as a mysterious figure stalks him",
+                link: "https://www.youtube.com/watch?v=XTt0UBC-haI",
+                backgroundImage: "url('flamingostill3.jpg')",
+                awards: "Placed 2nd place in Brock University's 72-Hour Film Festival 2023"
+            },
+            {
+                thumbnail: "thumb2.png",
+                title: "Non Sense",
+                description: "Four friends wake up to find out they have superpowers! With their heightened senses they explore the world however, one is corrupted by their own evil thoughts.",
+                link: "https://www.youtube.com/watch?v=VIDEO2",
+                backgroundImage: "url('nonsensestill.jpg')",
+                awards: "Placed 2nd place in Brock University's 72-Hour Film Festival 2024"
+            },
+            {
+                thumbnail: "thumb3.jpg",
+                title: "7:39",
+                description: "A group of friends on a scientific escapade for their class turns into a mystery when they enter a spooky forest blah blah.",
+                link: "https://www.youtube.com/watch?v=ZXOwATFhx6A",
+                backgroundImage: "url('739still.png')",
+                awards: "Placed 1st place in Brock University's 'Render This' film competition"
+            },
+       
+            {
+                thumbnail: "thumb3.jpg",
+                title: "Bear Witness",
+                description: "An unusal night turned crime scene sees the murder of Teddy Walkins. With only two witnesses and no evidence, Detectives Grayson and Steele are on the case.",
+                link: "https://www.youtube.com/watch?v=AR63Mewo4QI",
+                backgroundImage: "url('bearstill.png')",
+                awards: "Participated in Niagara Arts Centre's Short Film Contest 2025 "
+            }
+        ];
+
+        let currentVideoIndex = 0;
+
+
+
+
+
+        function changeVideo(direction) {
+            currentVideoIndex += direction;
+
+            if (currentVideoIndex < 0) {
+                currentVideoIndex = videoData.length - 1;
+            } else if (currentVideoIndex >= videoData.length) {
+                currentVideoIndex = 0;
+            }
+
+
+            document.getElementById("thumbnail").src = videoData[currentVideoIndex].thumbnail;
+            document.getElementById("video-title").innerText = videoData[currentVideoIndex].title;
+            document.getElementById("video-text").innerText = videoData[currentVideoIndex].description;
+            document.getElementById("video-awards").innerText = videoData[currentVideoIndex].awards;
+            document.querySelector('.video-thumbnails-section').style.backgroundImage = videoData[currentVideoIndex].backgroundImage;
+        }
+
+        function playVideo() {
+            window.open(videoData[currentVideoIndex].link, "_blank");
+        }
     </script>
 
 </body>
 </html>
+
+
+
+
+
+

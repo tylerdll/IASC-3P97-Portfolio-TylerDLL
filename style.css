@@ -21,19 +21,20 @@ body {
     align-items: center; /* Aligns items vertically */
     justify-content: space-between; /* Spreads text and images */
     max-width: 1000px;
-    margin: 50px auto;
-    padding: 20px;
+    margin:0px auto;
+    padding: 1cqi;
 }
 
 /* About Text */
 .about-content {
-    flex: 1; /* Allows it to take space */
+    flex: 1; /* Takes available space */
     max-width: 50%;
     text-align: left;
+    align-self: flex-start; /* Prevents movement */
 }
 
 .about {
-    margin-top: 0;
+    margin-top: 250px;
 }
 
 .abouttext {
@@ -45,24 +46,29 @@ body {
 
 /* Slideshow Container (Right Side) */
 .slideshow-container {
-    width: 400px;
-    height: 300px;
-    position: relative;
+
+
     overflow: hidden;
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: black;
+
+    /* Move Down and Right */
+    margin-top: 350px; /* Moves it down */
+    
 }
+
 
 /* Slide images */
 .slide {
-    max-width: 100%;
-    max-height: 100%;
+    max-width: 80%;
+    max-height: 80%;
     object-fit: contain; /* Prevents stretching */
     position: absolute;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    margin-left: -230px; /* Moves it to the right */
 }
 
 /* Make the active slide visible */
@@ -99,7 +105,7 @@ body {
 }
 
 .navbar ul li a:hover {
-    color: #ffcc00;
+    color: #550000;
 }
 
 /* Moving Image Container (Ticker) */
@@ -170,3 +176,92 @@ body {
     max-width: 1000px;
     height: 400px;
 }
+
+/* Video Thumbnails Section */
+.video-thumbnails-section {
+
+    color: black;
+    margin-top: 500px; /* Adjust this value to move it further down */
+    margin-left: 0; /* Remove the left margin to make it full width */
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%; /* Makes the section take up the full width of the screen */
+    height: 100vh; /* Makes the section take up the full height of the viewport */
+    padding: 20px;
+
+    /* Initial background image */
+    background-image: url('flamingostill3.jpg'); /* Default background */
+    background-size: cover; /* Ensures the image covers the entire section */
+    background-position: center; /* Centers the background image */
+    background-repeat: no-repeat; /* Prevents the background from repeating */
+    background-attachment: fixed; /* Optional: Makes the background fixed when scrolling */
+    transition: background-image 1s ease-in-out; /* Smooth transition for background change */
+}
+
+
+
+
+/* Slideshow for Thumbnails */
+.thumbnail-slideshow {
+    display: flex;
+    align-items: center;
+    position: relative;
+    max-width: 50%;
+}
+
+/* Thumbnail Image */
+.thumbnail-slideshow img {
+    margin-left: 50px; 
+    width: 400px;
+    height: auto;
+    border-radius: 10px;
+    cursor: pointer;
+    position: relative; /* Ensure the image is positioned normally */
+    z-index: 0; /* Thumbnail is in the background */
+}
+
+
+/* Left & Right Arrow Buttons */
+.next {
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 25px;
+    margin: 10px;
+    position: relative; /* Set to relative for positioning */
+    z-index: 1; /* Ensure arrows are above the thumbnail */
+}
+.prev {
+    left:45px;
+    background-color: black;
+    color: white;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 25px;
+    margin: 10px;
+    position: relative; /* Set to relative for positioning */
+    z-index: 1; /* Ensure arrows are above the thumbnail */
+}
+
+.prev:hover, .next:hover {
+    background-color: #2a0000;
+}
+
+/* Video Description */
+.video-description {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    padding-left: 20px;
+}
+.video-award {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+    padding-left: 20px;
+}
+
