@@ -10,13 +10,14 @@
         <ul>
             <li><a href="#home">Home</a></li>
             <li><a href="#about">About</a></li>
-            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#comp">Competition</a></li>
+            <li><a href="#personal">Personal</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
     <!-- Moving Image Ticker -->
-    <div class="moving-image-container">
+    <div div id="home"class="moving-image-container">
         <div class="moving-image-wrapper">
             <img src="reel.png" alt="Moving Image" class="moving-image">
             <img src="reel.png" alt="Moving Image" class="moving-image">
@@ -29,12 +30,12 @@
     <h1 class="name">Tyler De Las Llagas</h1>
     <!-- YouTube Video Embed with Images on the Corners -->
     <div class="video-container">
-        <iframe width="1000" height="500" src="https://www.youtube.com/embed/cklfhd7m8SU?si=nANpHSRNa-e1vJ1O" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="1000" height="500" src="https://www.youtube.com/embed/nipRCDh4JbY?si=JKCMqAlMA3KoCmXd" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <img src="left_image.png" alt="Left Image" class="bottom-left">
         <img src="right_image.png" alt="Right Image" class="bottom-right">
     </div>
     <!-- About Section (Text Left, Images Right) -->
-    <div class="about-section">
+    <div div id="about"class="about-section">
         <div class="about-content">
             <h1 class="about">About</h1>
             <p class="abouttext">
@@ -49,9 +50,8 @@
         </div>
     </div>
 
-
     <!-- Video Thumbnails Section -->
-    <div class="video-thumbnails-section">
+    <div div id="comp"class="video-thumbnails-section">
         <div class="thumbnail-slideshow">
             <button class="prev" onclick="changeVideo(-1)">&#10094;</button>
             <img id="thumbnail" src="thumb1.png" alt="Video Thumbnail" onclick="playVideo()">
@@ -63,16 +63,30 @@
             <h1 id="v-title">Competition Work</h1>
             <h1 id="video-title">Flamingo</h1>
             <p id="video-text">A movie filming gone wrong; Director Bob Jones is seen to be in trouble as a mysterious figure stalks him</p>
-       
-                <p id="video-awards">Placed 2nd place in Brock University's 72-Hour Film Festival 2023</p>
- 
+            <p id="video-awards">Placed 2nd place in Brock University's 72-Hour Film Festival 2023</p>
+        </div>
+    </div>
+
+    <!-- Personal Work Section -->
+    <div div id="personal"class="personal-work-section">
+        <!-- Switch Position: Description on Right, Thumbnails on Left -->
+        <div class="personal-thumbnail-slideshow">
+            <button class="prev" onclick="changePersonalVideo(-1)">&#10094;</button>
+            <img id="personal-thumbnail" src="personal1.png" alt="Personal Video Thumbnail" onclick="playPersonalVideo()">
+            <button class="next" onclick="changePersonalVideo(1)">&#10095;</button>
+        </div>
+
+        <div class="personal-video-description">
+            <h1 id="pv-title">Personal Work</h1>
+            <h1 id="personal-video-title">Lock In</h1>
+            <p id="personal-video-text">A personal project exploring cinematography, camera techniques and editing.</p>
+           
         </div>
     </div>
 
     <script>
-      let slideIndex = 0;
+        let slideIndex = 0;
         const slides = document.querySelectorAll(".slide");
-
 
         function showSlides() {
             slides.forEach((slide, index) => {
@@ -82,18 +96,14 @@
                 }
             });
 
-
             slideIndex = (slideIndex + 1) % slides.length;
             setTimeout(showSlides, 3000); // Change every 3 seconds
         }
 
-
         showSlides();
-
 
         const videoData = [
             {
-
                 thumbnail: "thumb1.png",
                 title: "Flamingo",
                 description: "A movie filming gone wrong; Director Bob Jones is seen to be in trouble as a mysterious figure stalks him",
@@ -117,23 +127,17 @@
                 backgroundImage: "url('739still.png')",
                 awards: "Placed 1st place in Brock University's 'Render This' film competition"
             },
-       
             {
-                thumbnail: "thumb3.jpg",
+                thumbnail: "thumb4.jpg",
                 title: "Bear Witness",
-                description: "An unusal night turned crime scene sees the murder of Teddy Walkins. With only two witnesses and no evidence, Detectives Grayson and Steele are on the case.",
+                description: "An unusual night turned crime scene sees the murder of Teddy Walkins. With only two witnesses and no evidence, Detectives Grayson and Steele are on the case.",
                 link: "https://www.youtube.com/watch?v=AR63Mewo4QI",
                 backgroundImage: "url('bearstill.png')",
-                awards: "Participated in Niagara Arts Centre's Short Film Contest 2025 "
+                awards: "Participated in Niagara Arts Centre's Short Film Contest 2025"
             }
         ];
 
         let currentVideoIndex = 0;
-
-
-
-
-
         function changeVideo(direction) {
             currentVideoIndex += direction;
 
@@ -142,7 +146,6 @@
             } else if (currentVideoIndex >= videoData.length) {
                 currentVideoIndex = 0;
             }
-
 
             document.getElementById("thumbnail").src = videoData[currentVideoIndex].thumbnail;
             document.getElementById("video-title").innerText = videoData[currentVideoIndex].title;
@@ -154,13 +157,64 @@
         function playVideo() {
             window.open(videoData[currentVideoIndex].link, "_blank");
         }
+
+        const personalVideoData = [
+            {
+                thumbnail: "personal1.png",
+                title: "Lock In",
+                description: "A personal project exploring cinematography, camera techniques and editing.",
+                link: "https://www.youtube.com/watch?v=6IhJNfP1_c8",
+                backgroundImage: "url('personalwork1.jpg')",
+            },
+            {
+                thumbnail: "personalwork2.jpg",
+                title: "The Room",
+                description: "An exploration of self-worth and deprecation told in a single room short video WIP!",
+                link: "https://www.youtube.com/watch?v=2jWr0jlLvnI",
+                backgroundImage: "url('personal2.jpg')",
+            },
+            {
+                thumbnail: "personalwork3.jpg",
+                title: "V Advertisement",
+                description: "A chase scene turned performance enhancing commercial.",
+                link: "https://www.youtube.com/watch?v=Sdrrjnw33jg",
+                backgroundImage: "url('personal3.jpg')",
+            }
+            
+        ];
+
+        let currentPersonalVideoIndex = 0;
+
+        function changePersonalVideo(direction) {
+            currentPersonalVideoIndex += direction;
+
+            if (currentPersonalVideoIndex < 0) {
+                currentPersonalVideoIndex = personalVideoData.length - 1;
+            } else if (currentPersonalVideoIndex >= personalVideoData.length) {
+                currentPersonalVideoIndex = 0;
+            }
+
+            document.getElementById("personal-thumbnail").src = personalVideoData[currentPersonalVideoIndex].thumbnail;
+            document.getElementById("personal-video-title").innerText = personalVideoData[currentPersonalVideoIndex].title;
+            document.getElementById("personal-video-text").innerText = personalVideoData[currentPersonalVideoIndex].description;
+            document.querySelector('.personal-work-section').style.backgroundImage = personalVideoData[currentPersonalVideoIndex].backgroundImage;
+        }
+
+        function playPersonalVideo() {
+            window.open(personalVideoData[currentPersonalVideoIndex].link, "_blank");
+        }
     </script>
+
+<!-- Contact Section -->
+<div id="contact" class="contact-section">
+    <h1>Contact Me</h1>
+    <p>If you'd like to get in touch, you can reach me via the following methods:</p>
+    
+    <p><strong>Email:</strong> <a href="mailto:delasllagast@gmail.com">delasllagast@gmail.com</a></p>
+   
+    <p><strong></strong> LinkedIn: <a href="https://www.linkedin.com/in/tyler-de-las-llagas-936661299/" target="_blank">https://www.linkedin.com/in/tyler-de-las-llagas</a></p>
+    
+</div>
 
 </body>
 </html>
-
-
-
-
-
-
