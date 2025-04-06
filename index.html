@@ -60,7 +60,7 @@
 
         <!-- Video Description -->
         <div class="video-description">
-            <h1 id="v-title">Competition Work</h1>
+            <h1 id="v-title">'Professional' Work</h1>
             <h1 id="video-title">Flamingo</h1>
             <p id="video-text">A movie filming gone wrong; Director Bob Jones is seen to be in trouble as a mysterious figure stalks him</p>
             <p id="video-awards">Placed 2nd place in Brock University's 72-Hour Film Festival 2023</p>
@@ -134,6 +134,14 @@
                 link: "https://www.youtube.com/watch?v=AR63Mewo4QI",
                 backgroundImage: "url('bearstill.png')",
                 awards: "Participated in Niagara Arts Centre's Short Film Contest 2025"
+            },
+            {
+                thumbnail: "milkman.png",
+                title: "The Milkman Trailer",
+                description: "In a lactose-intolerant world where dairy is banned, Kieran Calfman's dream turned nightmare sees him face off against the evil Dr. Galactose. With the Holy Cow and the Lactate League by his side, Kieran must become the 'Milkman' and fight for their future. ",
+                link: "https://youtu.be/pxXxujt55oA?si=WXoFBU1XRANgVnmY",
+                backgroundImage: "url('milkmanstill.png')",
+                awards: ""
             }
         ];
 
@@ -152,6 +160,7 @@
             document.getElementById("video-text").innerText = videoData[currentVideoIndex].description;
             document.getElementById("video-awards").innerText = videoData[currentVideoIndex].awards;
             document.querySelector('.video-thumbnails-section').style.backgroundImage = videoData[currentVideoIndex].backgroundImage;
+    
         }
 
         function playVideo() {
